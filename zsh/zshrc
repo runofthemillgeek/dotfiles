@@ -1,0 +1,21 @@
+export ZSH=/home/sangeeth/.oh-my-zsh
+
+ZSH_THEME="agnoster"
+
+# npm, bower plugins provide autocompletion support
+plugins=(git tmux node npm bower)
+
+source $ZSH/oh-my-zsh.sh
+
+###############################################
+############ Additional Settings ##############
+###############################################
+
+# Set your username here to hide it on prompt
+DEFAULT_USER="sangeeth"
+
+# Enables bash style comments
+setopt interactivecomments
+
+# Enables spelling corrector
+setopt CORRECT
