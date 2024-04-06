@@ -19,3 +19,6 @@ setopt interactivecomments
 
 # Enables spelling corrector
 setopt CORRECT
+
+# Enables 256 color
+# export TERM="xterm-256color"
