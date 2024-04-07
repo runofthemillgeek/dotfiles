@@ -1,0 +1,19 @@
+[init]
+	defaultbranch = main
+[user]
+	name = Sangeeth Sudheer
+	email = git@sangeeth.dev
+	signingkey = F6D06ECE734C57D1
+[pull]
+	ff = only
+[commit]
+	gpgsign = true
+[gpg]
+	program = /usr/local/MacGPG2/bin/gpg2
+
+# Optional: If you have work or other client-specific config options,
+# place them in a separate file and include them like so:
+#
+# [includeIf "gitdir:~/dev/gitea.home/"]
+# 	path = .gitconfig-gitea-home
+
