@@ -187,5 +187,10 @@ alias p=pnpm
 alias cat='bat'
 alias ls='eza'
 
+alias codego='code --profile=Golang'
+alias coders='code --profile=Rust'
+alias coderust='code --profile=Rust'
+alias codepy='code --profile=Python'
+
 function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
 
