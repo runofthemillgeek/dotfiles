@@ -17,9 +17,6 @@ export plugins=(
 # ordering matters! Remove existing `source` in `.zshrc`
 source $ZSH/oh-my-zsh.sh
 
-# Homwbrew fix for pyenv
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-
 # Fix when installing ruby with asdf/mise and brew
 # Might also need to run:
 # $ brew install readline libyaml
@@ -50,6 +47,5 @@ source ~/.custom/fns-aliases.sh
 # My $PATH modifications
 export PATH="$(brew --prefix)t/mysql-client/bin:$HOME/go/bin:$HOME/.local/bin:$PATH"
 
-eval "$(pyenv init -)"
 eval "$(mise activate zsh)"
 
