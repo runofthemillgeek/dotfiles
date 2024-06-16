@@ -192,5 +192,18 @@ alias coders='code --profile=Rust'
 alias coderust='code --profile=Rust'
 alias codepy='code --profile=Python'
 
+alias vscode="$(which code)"
+function code() {
+  if [[ -e "go.mod" || -e *.go ]]; then
+    vscode --profile="Golang" "$@"
+  elif [[ -e "Cargo.toml" || -e *.rs ]]; then
+    vscode --profile="Rust" "$@"
+  elif [[ -e "requirements.txt" || -e "pyproject.toml" || -e "poetry.lock" || -e "Pipfile.lock" || -e *.py ]]; then
+    vscode --profile="Python" "$@"
+  else
+    vscode --profile="Default" "$@"
+  fi
+}
+
 function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
 
