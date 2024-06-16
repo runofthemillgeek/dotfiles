@@ -200,6 +200,8 @@ function code() {
     vscode --profile="Rust" "$@"
   elif [[ -e "requirements.txt" || -e "pyproject.toml" || -e "poetry.lock" || -e "Pipfile.lock" || -e *.py ]]; then
     vscode --profile="Python" "$@"
+  elif [[ -e "Gemfile" || -e "Gemfile.lock" || -e *.rb ]]; then
+    vscode --profile="Ruby" "$@"
   else
     vscode --profile="Default" "$@"
   fi
