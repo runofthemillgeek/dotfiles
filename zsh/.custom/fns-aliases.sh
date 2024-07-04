@@ -191,18 +191,37 @@ alias codego='code --profile=Golang'
 alias coders='code --profile=Rust'
 alias coderust='code --profile=Rust'
 alias codepy='code --profile=Python'
+alias coderb='code --profile=Ruby'
+alias codecpp='code --profile=CPP'
+alias codeex='code --profile=Elixir'
 
 alias vscode="$(which code)"
 function code() {
-  if [[ -e "go.mod" || -e *.go ]]; then
+  curr_pwd="$PWD"
+  if [[ -d "$1" ]]; then 
+    cd "$1"
+  fi
+
+  if [[ -e "go.mod" || -n `find . -type f -iname '*.go'` ]]; then
+    cd "$curr_pwd"
     vscode --profile="Golang" "$@"
-  elif [[ -e "Cargo.toml" || -e *.rs ]]; then
+  elif [[ -e "Cargo.toml" || -n `find . -type f -iname '*.rs'` ]]; then
+    cd "$curr_pwd"
     vscode --profile="Rust" "$@"
-  elif [[ -e "requirements.txt" || -e "pyproject.toml" || -e "poetry.lock" || -e "Pipfile.lock" || -e *.py ]]; then
+  elif [[ -e "requirements.txt" || -e "pyproject.toml" || -e "poetry.lock" || -e "Pipfile.lock" || -n `find . -type f -iname '*.py'` ]]; then
+    cd "$curr_pwd"
     vscode --profile="Python" "$@"
-  elif [[ -e "Gemfile" || -e "Gemfile.lock" || -e *.rb ]]; then
+  elif [[ -e "Gemfile" || -e "Gemfile.lock" || -n `find . -type f -iname '*.rb'` ]]; then
+    cd "$curr_pwd"
     vscode --profile="Ruby" "$@"
+  elif [[ -n `find . -type f \( -iname '*.c' -o -iname '*.cpp' -o -iname '*.cc' \)` ]]; then
+    cd "$curr_pwd"
+    vscode --profile="CPP" "$@"
+  elif [[ -n `find . -type f -iname '*.ex'` ]]; then
+    cd "$curr_pwd"
+    vscode --profile="Elixir" "$@"
   else
+    cd "$curr_pwd"
     vscode --profile="Default" "$@"
   fi
 }
