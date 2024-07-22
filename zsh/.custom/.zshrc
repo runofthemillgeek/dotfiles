@@ -17,6 +17,8 @@ export plugins=(
 # ordering matters! Remove existing `source` in `.zshrc`
 source $ZSH/oh-my-zsh.sh
 
+export PAGER='less -FRX'
+
 # Fix when installing ruby with asdf/mise and brew
 # Might also need to run:
 # $ brew install readline libyaml
